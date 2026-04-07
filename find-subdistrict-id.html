@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Subdistrict ID - Parepare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        select, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            font-size: 16px;
+        }
+        button {
+            background: #c2185b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #ad1457;
+        }
+        .result {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+        .highlight {
+            background: yellow;
+            padding: 2px 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Cari Subdistrict ID - Parepare</h1>
+    <p>Tool ini membantu mencari subdistrict_id untuk lokasi toko Anda (Parepare, Sulawesi Selatan)</p>
+
+    <div class="section">
+        <h3>Step 1: Pilih Provinsi</h3>
+        <select id="province" onchange="loadCities()">
+            <option value="">Loading provinces...</option>
+        </select>
+        <div id="provinceResult" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="section">
+        <h3>Step 2: Pilih Kota</h3>
+        <select id="city" onchange="loadSubdistricts()" disabled>
+            <option value="">Pilih provinsi dulu</option>
+        </select>
+        <div id="cityResult" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="section">
+        <h3>Step 3: Pilih Kecamatan</h3>
+        <select id="subdistrict" onchange="showSubdistrict()" disabled>
+            <option value="">Pilih kota dulu</option>
+        </select>
+        <div id="subdistrictResult" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="section" style="background: #e8f5e9;">
+        <h3>✅ Hasil Akhir:</h3>
+        <div id="finalResult">
+            <p>Pilih provinsi, kota, dan kecamatan untuk mendapatkan subdistrict_id</p>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000/api/rajaongkir';
+        let provinces = [];
+        let cities = [];
+        let subdistricts = [];
+
+        // Load provinces on page load
+        window.onload = () => {
+            fetch(`${API_BASE}/provinces`)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success && data.data?.data) {
+                        provinces = data.data.data;
+                        const select = document.getElementById('province');
+                        select.innerHTML = '<option value="">Pilih Provinsi</option>';
+                        provinces.forEach(p => {
+                            const opt = document.createElement('option');
+                            opt.value = p.province_id;
+                            opt.textContent = p.province_name;
+                            // Auto-select Sulawesi Selatan
+                            if (p.province_name.includes('Sulawesi Selatan')) {
+                                opt.selected = true;
+                            }
+                            select.appendChild(opt);
+                        });
+                        // Auto-load cities for Sulawesi Selatan
+                        if (select.value) loadCities();
+                    }
+                })
+                .catch(err => {
+                    console.error('Error loading provinces:', err);
+                    alert('Gagal memuat provinsi. Pastikan backend berjalan di http://localhost:8000');
+                });
+        };
+
+        function loadCities() {
+            const provinceId = document.getElementById('province').value;
+            if (!provinceId) return;
+
+            const province = provinces.find(p => p.province_id == provinceId);
+            document.getElementById('provinceResult').style.display = 'block';
+            document.getElementById('provinceResult').innerHTML = `Province ID: <span class="highlight">${provinceId}</span> - ${province.province_name}`;
+
+            fetch(`${API_BASE}/cities?province_id=${provinceId}`)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success && data.data?.data) {
+                        cities = data.data.data;
+                        const select = document.getElementById('city');
+                        select.disabled = false;
+                        select.innerHTML = '<option value="">Pilih Kota</option>';
+                        cities.forEach(c => {
+                            const opt = document.createElement('option');
+                            opt.value = c.city_id;
+                            opt.textContent = `${c.type} ${c.city_name}`;
+                            // Auto-select Parepare
+                            if (c.city_name.toLowerCase().includes('parepare')) {
+                                opt.selected = true;
+                            }
+                            select.appendChild(opt);
+                        });
+                        // Auto-load subdistricts for Parepare
+                        if (select.value) loadSubdistricts();
+                    }
+                })
+                .catch(err => console.error('Error loading cities:', err));
+        }
+
+        function loadSubdistricts() {
+            const cityId = document.getElementById('city').value;
+            if (!cityId) return;
+
+            const city = cities.find(c => c.city_id == cityId);
+            document.getElementById('cityResult').style.display = 'block';
+            document.getElementById('cityResult').innerHTML = `City ID: <span class="highlight">${cityId}</span> - ${city.type} ${city.city_name}`;
+
+            fetch(`${API_BASE}/subdistricts?city_id=${cityId}`)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success && data.data?.data) {
+                        subdistricts = data.data.data;
+                        const select = document.getElementById('subdistrict');
+                        select.disabled = false;
+                        select.innerHTML = '<option value="">Pilih Kecamatan</option>';
+                        subdistricts.forEach(s => {
+                            const opt = document.createElement('option');
+                            opt.value = s.subdistrict_id;
+                            opt.textContent = s.subdistrict_name;
+                            select.appendChild(opt);
+                        });
+                    }
+                })
+                .catch(err => console.error('Error loading subdistricts:', err));
+        }
+
+        function showSubdistrict() {
+            const subdistrictId = document.getElementById('subdistrict').value;
+            if (!subdistrictId) return;
+
+            const subdistrict = subdistricts.find(s => s.subdistrict_id == subdistrictId);
+            document.getElementById('subdistrictResult').style.display = 'block';
+            document.getElementById('subdistrictResult').innerHTML = `Subdistrict ID: <span class="highlight">${subdistrictId}</span> - ${subdistrict.subdistrict_name}`;
+
+            // Show final result
+            const province = provinces.find(p => p.province_id == document.getElementById('province').value);
+            const city = cities.find(c => c.city_id == document.getElementById('city').value);
+            
+            document.getElementById('finalResult').innerHTML = `
+                <h4>📍 Lokasi Lengkap:</h4>
+                <p>${subdistrict.subdistrict_name}, ${city.type} ${city.city_name}, ${province.province_name}</p>
+                <hr>
+                <h4>🔑 Subdistrict ID untuk Config:</h4>
+                <div style="background: #fff; padding: 15px; border: 2px solid #4caf50; border-radius: 4px; margin: 10px 0;">
+                    <code style="font-size: 18px; color: #c2185b;">
+                        export const ORIGIN_SUBDISTRICT_ID = <span class="highlight">${subdistrictId}</span>;
+                    </code>
+                </div>
+                <p><strong>Copy kode di atas</strong> dan paste ke file:</p>
+                <code style="background: #fff; padding: 5px; display: block; margin: 5px 0;">
+                    frontend/src/config/shipping.js
+                </code>
+            `;
+        }
+    </script>
+</body>
+</html>
