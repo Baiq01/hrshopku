@@ -1,0 +1,14 @@
+# Folder Sampah (WAJIB)
+**/node_modules/
+**/vendor/
+**/build/
+.env
+.DS_Store
+
+# Laravel Specific
+/backend/storage/*.key
+/backend/storage/framework/cache/data/*
+/backend/storage/framework/sessions/*
+/backend/storage/framework/testing/*
+/backend/storage/framework/views/*.php
+/backend/storage/logs/*.log
