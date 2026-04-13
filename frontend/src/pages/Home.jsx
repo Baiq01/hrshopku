@@ -219,7 +219,7 @@ export default function Home(){
 
       <section id="products-section">
         <div className="flex items-end justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Koleksi Produk</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Koleksi BAJUUUUUU</h2>
           <a href="/cart" className="text-sm text-rose-700 hover:underline font-semibold">Lihat Keranjang →</a>
         </div>
         
