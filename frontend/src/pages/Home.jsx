@@ -142,7 +142,7 @@ export default function Home(){
           <div className="flex items-center">
             <div>
               <h2 className="text-gray-700 text-xl">Temukan Dirimu</h2>
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-rose-800">Text Di ubah</h1>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-rose-800">MENGUBAH TEXTT</h1>
               <div className="flex gap-3 mt-6">
                 <button onClick={()=>document.getElementById('products-section')?.scrollIntoView({behavior:'smooth'})} className="btn btn-accent rounded-full">Temukan Sekarang</button>
                 <a href="/custom-order" className="btn btn-primary rounded-full">Pesan Custom</a>
