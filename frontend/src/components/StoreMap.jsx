@@ -12,7 +12,7 @@ L.Icon.Default.mergeOptions({
 
 export default function StoreMap() {
   // Koordinat untuk Lapadde, Parepare, Sulawesi Selatan
-  const position = [-4.0088, 119.6233];
+  const position = [-4.015806, 119.657861];
 
   return (
     <MapContainer 
