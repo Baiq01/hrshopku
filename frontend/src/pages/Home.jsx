@@ -141,7 +141,7 @@ export default function Home(){
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
           <div className="flex items-center">
             <div>
-              <h2 className="text-gray-700 text-xl">Temukan Dirimu</h2>
+              <h2 className="text-gray-700 text-xl">Temukan Dirimu </h2>
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-rose-800">Tampilan & Gaya</h1>
               <div className="flex gap-3 mt-6">
                 <button onClick={()=>document.getElementById('products-section')?.scrollIntoView({behavior:'smooth'})} className="btn btn-accent rounded-full">Temukan Sekarang</button>
