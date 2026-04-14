@@ -274,7 +274,7 @@ export default function Home(){
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent mb-3">
-            Tentang toko kamu
+            Tentang toko kami
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             HRSHOPKU adalah toko baju bodo terpercaya di Parepare. Kami menyediakan baju bodo berkualitas dengan desain tradisional dan modern.
