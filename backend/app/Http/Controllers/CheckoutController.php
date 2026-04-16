@@ -125,7 +125,7 @@ class CheckoutController extends Controller
 
         $endpoint = $isProd
             ? 'https://app.midtrans.com/snap/v1/transactions'
-            : 'https://app.sandbox.midtrans.com/snap/v1/transactions';
+            : 'https://app.midtrans.com/snap/v1/transactions';
 
         $resp = Http::withBasicAuth($serverKey, '')
             ->withOptions(['verify' => false])

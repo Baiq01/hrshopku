@@ -15,7 +15,7 @@ function loadMidtrans(clientKey){
     if (document.getElementById('midtrans-script')) return resolve();
     const s = document.createElement('script');
     s.id = 'midtrans-script';
-    s.src = `https://app.sandbox.midtrans.com/snap/snap.js`; // change to production if needed
+    s.src = `https://app.midtrans.com/snap/snap.js`; // change to production if needed
     s.setAttribute('data-client-key', clientKey);
     s.onload = () => resolve();
     s.onerror = reject;
