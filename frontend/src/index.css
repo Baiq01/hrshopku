@@ -8,6 +8,8 @@
   --color-primary-rgb: 232,180,201;
   --color-accent: #f9e1e9; /* light pastel pink */
   --color-accent-rgb: 249,225,233;
+  --color-third: #083d77;
+  --color-third-rgb: 8,61,119;
 }
 
 html, body, #root {
@@ -35,6 +37,10 @@ body{
 }
 .btn-outline{
   @apply btn border border-gray-300 text-gray-700 hover:bg-gray-50;
+}
+.btn-third{
+  @apply btn text-gray-800 shadow-sm;
+  background-color: var(--color-third);
 }
 
 .card{
