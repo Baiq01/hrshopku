@@ -10,6 +10,7 @@ module.exports = {
         // Soft pink brand palette
         primary: '#e8b4c9', // main brand color (soft pink)
         accent: '#f9e1e9',  // very light pink accent
+        third: '#083d77', 
         brandpink: {
           50:  '#fdf7fa',
           100: '#fbeff4',
