@@ -69,7 +69,7 @@ export default function Login(){
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary w-full">Login</button>
+            <button type="submit" className="btn bg-fourth w-full">Login</button>
           </form>
           <div className="mt-6 flex gap-2 text-xs justify-center">
             <span className="text-gray-500">Belum punya akun?</span>

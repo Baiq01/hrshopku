@@ -453,7 +453,7 @@ export default function Checkout(){
               <span>Total</span>
               <span className="text-rose-700">Rp {parseInt(grandTotal).toLocaleString('id-ID')}</span>
             </div>
-            <button disabled={submitting} onClick={pay} className="btn btn-third w-full mt-4">{submitting? 'Memproses…' : 'Bayar Sekarang'}</button>
+            <button disabled={submitting} onClick={pay} className="btn btn-primay w-full mt-4">{submitting? 'Memproses…' : 'Bayar Sekarang'}</button>
             <a href="/cart" className="btn btn-outline w-full">Kembali ke Keranjang</a>
           </div>
         </div>
