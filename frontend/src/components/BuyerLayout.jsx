@@ -91,7 +91,7 @@ export default function BuyerLayout({ title, children }){
         </div>
         <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
           <NavItem to="/" label="Beranda" />
-          <NavItem to="/custom-order" label="Pesan Custom" />
+          <NavItem to="/custom-order" label="Pesan Kostum" />
           <NavItem to="/track" label="Lacak Paket" />
           {user && (
             <>

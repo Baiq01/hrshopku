@@ -130,7 +130,7 @@ export default function CustomOrder() {
     <BuyerLayout title="Pesan Custom">
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-3xl font-bold mb-2 text-rose-700">Pesan Baju Bodo Custom</h2>
+          <h2 className="text-3xl font-bold mb-2 text-rose-700">Pesan Baju Bodo Kostum</h2>
           <p className="text-gray-600 mb-6">
             Pesan baju bodo sesuai dengan ukuran, warna, dan desain yang Anda inginkan
           </p>
@@ -194,7 +194,7 @@ export default function CustomOrder() {
                     <option value="L">L (Large)</option>
                     <option value="XL">XL (Extra Large)</option>
                     <option value="XXL">XXL</option>
-                    <option value="Custom">Custom (isi ukuran detail)</option>
+                    <option value="Custom">Kostum (isi ukuran detail)</option>
                   </select>
                 </div>
                 <div>
