@@ -73,9 +73,9 @@ export default function MyCustomOrders() {
     <BuyerLayout title="Pesanan Custom">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-bold text-rose-700">Pesanan Custom Saya</h2>
+          <h2 className="text-3xl font-bold text-rose-700">Pesanan Kostum Saya</h2>
             <a href="/custom-order" className="btn btn-primary">
-              + Pesan Custom Baru
+              + Pesan Kostum Baru
             </a>
           </div>
 
@@ -83,9 +83,9 @@ export default function MyCustomOrders() {
             <div className="text-center py-12">Memuat...</div>
           ) : orders.length === 0 ? (
             <div className="card p-8 text-center">
-              <p className="text-gray-600 mb-4">Anda belum memiliki pesanan custom</p>
+              <p className="text-gray-600 mb-4">Anda belum memiliki pesanan kostum</p>
               <a href="/custom-order" className="btn btn-primary">
-                Buat Pesanan Custom
+                Buat Pesanan Kostum
               </a>
             </div>
           ) : (
@@ -168,7 +168,7 @@ export default function MyCustomOrders() {
           >
             <div className="p-6 border-b flex justify-between items-center">
               <div>
-                <h3 className="text-xl font-bold">Detail Pesanan Custom #{selectedOrder.id}</h3>
+                <h3 className="text-xl font-bold">Detail Pesanan Kostum #{selectedOrder.id}</h3>
                 <div className="mt-2">{getStatusBadge(selectedOrder.status)}</div>
               </div>
               <button
