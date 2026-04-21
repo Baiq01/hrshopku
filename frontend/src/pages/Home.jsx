@@ -277,7 +277,7 @@ export default function Home(){
             Tentang toko kami
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            HRSHOPKU Baju Bodo adalah toko baju bodo terpercaya di Parepare. Kami menyediakan baju bodo dan berbagai pakaian tradisional berkualitas dengan desain tradisional dan modern.
+            HRSHOPKU Baju Bodo adalah destinasi terpercaya di Parepare untuk mendapatkan baju bodo berkualitas. Kami menghadirkan koleksi pakaian tradisional dengan sentuhan desain klasik yang elegan serta gaya modern yang kekinian, sehingga cocok untuk berbagai kesempatan. Tampil anggun dan percaya diri dengan pilihan terbaik dari kami.
           </p>
         </div>
 
