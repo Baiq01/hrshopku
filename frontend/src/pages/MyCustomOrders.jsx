@@ -70,7 +70,7 @@ export default function MyCustomOrders() {
   }
 
   return (
-    <BuyerLayout title="Pesanan Custom">
+    <BuyerLayout title="Pesanan Kostum">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-3xl font-bold text-rose-700">Pesanan Kostum Saya</h2>
