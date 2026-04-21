@@ -130,7 +130,7 @@ class MidtransController extends Controller
 
         $serverKey = config('services.midtrans.server_key');
         $isProd = config('services.midtrans.is_production');
-        $base = $isProd ? 'https://api.midtrans.com' : 'https://api.midtrans.com';
+        $base = $isProd ? 'https://api.midtrans.com' : 'https://api.sandbox.midtrans.com';
         $url = $base.'/v2/'.$orderId.'/status';
 
         $http = \Illuminate\Support\Facades\Http::withBasicAuth($serverKey, '');
