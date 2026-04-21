@@ -277,7 +277,7 @@ export default function Home(){
             Tentang toko kami
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            HRSHOPKU Baju Bodo adalah toko baju bodo terpercaya di Parepare. Kami menyediakan baju bodo berkualitas dengan desain tradisional dan modern.
+            HRSHOPKU Baju Bodo adalah toko baju bodo terpercaya di Parepare. Kami menyediakan baju bodo dan berbagai pakaian tradisional berkualitas dengan desain tradisional dan modern.
           </p>
         </div>
 
@@ -350,8 +350,8 @@ export default function Home(){
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-1">Jam Operasional</h4>
                   <p className="text-sm text-gray-600">
-                    Senin - Sabtu: 08:00 - 21:00 WITA<br />
-                    Minggu: 08:00 - 22:00 WITA
+                    Senin - Sabtu: 07:00 - 21:00 WITA<br />
+                    Minggu: 07:00 - 22:00 WITA
                   </p>
                 </div>
               </div>
