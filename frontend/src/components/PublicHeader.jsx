@@ -55,7 +55,7 @@ export default function PublicHeader(){
       <div className="container flex items-center justify-between py-3">
         <a href="/" className="text-lg font-bold tracking-wide">HRSHOPKU BAJU BODO</a>
         <div className="flex items-center gap-4">
-          <a href="/custom-order" className="text-sm hover:underline font-semibold">Pesan Custom</a>
+          <a href="/custom-order" className="text-sm hover:underline font-semibold">Pesan Kostum</a>
           <a href="/track" className="text-sm hover:underline">Lacak Paket</a>
           {user ? (
             <span className="text-sm">
@@ -65,7 +65,7 @@ export default function PublicHeader(){
               <span className="mx-1">•</span>
               <a href="/my-custom-orders" className="underline relative"
                  onClick={()=>{ localStorage.setItem('hr_custom_orders_last_seen', new Date().toISOString()); setCustomBadge(false); }}>
-                Pesanan Custom
+                Pesanan Kostum
                 {customBadge && (
                   <span className="absolute -top-1 -right-3 inline-block h-3 w-3 rounded-full bg-red-600 animate-pulse"></span>
                 )}
